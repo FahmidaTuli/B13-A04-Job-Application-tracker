@@ -18,7 +18,26 @@
         }
       </style>
 </head>
-<body>
-    <h1 class="border border-amber-100" >Job Application tracker</h1>
+
+<body class="bg-[#F8FAFC] ">
+    
+    <!-- header section -->
+    <header class="w-[80%] mx-auto pt-[60px] space-y-[20px]">
+        <h1 class="text-[32px] font-bold text-[#002C5C]">Job Application Tracker</h1>
+        <div class="grid grid-cols-3 gap-4 ">
+            <div class="bg-[#FFFFFF] p-[20px] rounded-lg">
+                <p>Total</p>
+                <p id="total" class="text-[24px] font-bold text-[#002C5C]">0</p>
+            </div>
+            <div class="bg-[#FFFFFF] p-[20px] rounded-lg">
+                <p>Interview</p>
+                <p id="interview-count" class="text-[24px] font-bold text-[#10B981]">0</p>
+            </div>
+            <div class="bg-[#FFFFFF] p-[20px] rounded-lg">
+                <p>Rejected</p>
+                <p id="rejected-count" class="text-[24px] font-bold text-[#EF4444]">0</p>
+            </div>
+        </div>
+    </header>
 </body>
 </html>
