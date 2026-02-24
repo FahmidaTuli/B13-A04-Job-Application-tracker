@@ -24,12 +24,6 @@ function calculateCount() {
 
 calculateCount();
 
-function updateTotal(){
-    let count = allCardSection.children.length;
-    total.innerText = " " + count.length;
-}
-
-updateTotal();
 
 
 
@@ -73,11 +67,7 @@ function toggleStyle(id) {
 
 // Delegation
 mainContainer.addEventListener('click', function (event) {
-    if(event.target.classList.contains('btn-delete')){
-        let card = event.target.parentNode.parentNode;
-        card.remove();
-        updateTotal();
-    }
+    
 
     if (event.target.classList.contains('interview-btn')) {
         const parentNode = event.target.parentNode.parentNode;
