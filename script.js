@@ -24,6 +24,13 @@ function calculateCount() {
 
 calculateCount();
 
+function updateTotal(){
+    let count = allCardSection.children.length;
+    total.innerText = " " + count.length;
+}
+
+updateTotal();
+
 
 
 // filtering
@@ -66,7 +73,11 @@ function toggleStyle(id) {
 
 // Delegation
 mainContainer.addEventListener('click', function (event) {
-
+    if(event.target.classList.contains('btn-delete')){
+        let card = event.target.parentNode.parentNode;
+        card.remove();
+        updateTotal();
+    }
 
     if (event.target.classList.contains('interview-btn')) {
         const parentNode = event.target.parentNode.parentNode;
@@ -77,13 +88,13 @@ mainContainer.addEventListener('click', function (event) {
         const status = parentNode.querySelector('.status').innerText
         const notes = parentNode.querySelector('.notes').innerText
 
-        parentNode.querySelector('.status').innerText = 'Interview'
+        parentNode.querySelector('.status').innerHTML = 'INTERVIEW'
 
         const cardInfo = {
             jobsName,
             jobsPosition,
             selary,
-            status:'Interview',
+            status:'INTERVIEW',
             notes
         }
 
@@ -110,13 +121,13 @@ mainContainer.addEventListener('click', function (event) {
         const status = parentNode.querySelector('.status').innerText
         const notes = parentNode.querySelector('.notes').innerText
 
-        parentNode.querySelector('.status').innerText = 'Rejected'
+        parentNode.querySelector('.status').innerText = 'REJECTED'
 
         const cardInfo = {
             jobsName,
             jobsPosition,
             selary,
-            status:'Rejected',
+            status:'REJECTED',
             notes
         }
 
@@ -137,13 +148,23 @@ mainContainer.addEventListener('click', function (event) {
             calculateCount()
 
     }
-
+   
 })
-
 
 // html create
 function renderInterview() {
     filteredSection.innerHTML = ''
+    if(interviewList.length === 0 ){
+        filteredSection.innerHTML = `
+        <div class="bg-white w-[1110px] h-[440px] px-10 py-[120px] place-items-center mx-auto">
+        <img src="sources/jobs.png" alt="">
+        <h2 class="text-[24px] font-semibold text-[#002C5C] text-center ">No jobs available</h2>
+        <p class="text-[16px] font-normal text-[#64748B] text-center">Check back soon for new job opportunities</p>
+        </div>
+        
+        `
+        return
+    }
 
     for (let interview of interviewList) {
         console.log(interview);
@@ -180,15 +201,28 @@ function renderInterview() {
             
 
         `
-
+        
         filteredSection.appendChild(div)
     }
 }
 function renderRejected() {
     filteredSection.innerHTML = ''
+    if(rejectedList.length === 0 ){
+        filteredSection.innerHTML = `
+        <div class="bg-white w-[1110px] h-[440px] px-10 py-[120px] place-items-center mx-auto">
+        <img src="sources/jobs.png" alt="">
+        <h2 class="text-[24px] font-semibold text-[#002C5C] text-center ">No jobs available</h2>
+        <p class="text-[16px] font-normal text-[#64748B] text-center">Check back soon for new job opportunities</p>
+        </div>
+        
+        `
+        return
+    }
 
     for (let reject of rejectedList) {
-       
+        console.log(reject);
+
+
         let div = document.createElement('div');
         div.className = 'card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm'
         div.innerHTML = `
@@ -196,32 +230,35 @@ function renderRejected() {
                     <!-- part 1 -->
                     <div class="space-y-4">
                         <p class="jobsName text-[18px] font-semibold text-[#002C5C]">${reject.jobsName}</p>
-                        <p class="jobsPosition text-[16px] font-normal text-[#64748B]">${interview.jobsPosition}</p>
+                        <p class="jobsPosition text-[16px] font-normal text-[#64748B]">${reject.jobsPosition}</p>
                     </div>
 
                     <!-- part 2 -->
-                        <p class="selary text-[14px] font-normal text-[#64748B]">${interview.selary}</p>
+                        <p class="selary text-[14px] font-normal text-[#64748B]">${reject.selary}</p>
                     
                     <!-- part 3 -->
                      <div class="space-y-2">
                         <p class="status text-[14px] font-medium text-[#002C5C] bg-[#EEF4FF] w-[113px] h-9 px-3 py-2 rounded-sm">${reject.status}</p>
 
-                        <p class="notes text-[14px] font-normal text-[#323B49]">${interview.notes}</p>
+                        <p class="notes text-[14px] font-normal text-[#323B49]">${reject.notes}</p>
                      </div>
 
                      <div class="grid grid-cols-1 md:flex gap-2">
                         <button class="interview-btn border border-solid border-[#10B981] text-[14px] font-semibold text-[#10B981] px-3 py-2 w-[100px] h-9 rounded-sm">INTERVIEW</button>
                         <button class="rejected-btn border border-solid border-[#EF4444] text-[14px] font-semibold text-[#EF4444] px-3 py-2 w-[100px] h-9 rounded-sm">REJECTED</button>
                      </div>
-                    </div>
+                </div>
                 <div>
                     <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
                 </div>
-        `
+            
 
+        `
+        
         filteredSection.appendChild(div)
     }
 }
+
 
 
 
