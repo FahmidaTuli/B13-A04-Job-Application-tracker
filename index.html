@@ -50,7 +50,7 @@
                 <h2 class="text-[20px] font-semibold text-[#002C5C]">Available Jobs</h2>
             </div>
             <div>
-                <p> total 8 </p>
+                <p> total <span id="total-1">0</span> </p>
             </div>
         </div>
 
@@ -74,7 +74,7 @@
         <!-- cards -->
          <section class="space-y-4 sm: grid grid-cols-2 md:grid-cols-1" id="allCards">
             <!-- card 1 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-1" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -101,12 +101,12 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-1')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
 
              <!-- card 2 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-2" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -133,12 +133,12 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-2')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
 
              <!-- card 3 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-3" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -165,12 +165,12 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-3')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
 
              <!-- card 4 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-4" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -197,12 +197,12 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-4')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
 
              <!-- card 5 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-5" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -229,12 +229,12 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-5')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
 
              <!-- card 6 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-6" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -261,12 +261,12 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-6')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
 
              <!-- card 7 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-7" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -293,12 +293,12 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-7')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
 
              <!-- card 8 -->
-             <div class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
+             <div id="card-8" class="card flex justify-between bg-white p-6 border border-solid border-[#F1F2F4]  rounded-sm">
                 <!-- main part -->
                 <div class="space-y-[20px]">
                     <!-- part 1 -->
@@ -325,7 +325,7 @@
                 </div>
                 <!-- delete -->
                 <div>
-                    <button class="btn-delete"><img src="sources/delete.png" alt=""></button>
+                    <button onclick="deleteCard('card-8')"><img src="sources/delete.png" alt=""></button>
                 </div>
              </div>
          </section>

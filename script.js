@@ -3,6 +3,7 @@ let rejectedList = [];
 let currentStatus = 'all'
 
 let total = document.getElementById('total');
+let total1 = document.getElementById('total-1')
 let interviewCount = document.getElementById('interview-count');
 let rejectedCount = document.getElementById('rejected-count');
 
@@ -14,16 +15,30 @@ const allCardSection = document.getElementById('allCards');
 const mainContainer = document.querySelector('main');
 const filteredSection = document.getElementById('filtered-section')
 
-      // count
+// count
 function calculateCount() {
     total.innerText = allCardSection.children.length
+    total1.innerText = allCardSection.children.length
     interviewCount.innerText = interviewList.length
     rejectedCount.innerText = rejectedList.length
-
+    
 }
 
 calculateCount();
 
+function updateCount() {
+    const cards = document.querySelectorAll('.card');
+    total.innerHTML = cards.length
+    total1.innerHTML = cards.length
+}
+
+function deleteCard(cardId) {
+    const card = document.getElementById(cardId);
+    if(card){
+        card.remove();
+        updateCount();
+    }
+}
 
 
 
@@ -78,13 +93,13 @@ mainContainer.addEventListener('click', function (event) {
         const status = parentNode.querySelector('.status').innerText
         const notes = parentNode.querySelector('.notes').innerText
 
-        parentNode.querySelector('.status').innerHTML = 'INTERVIEW'
+        parentNode.querySelector('.status').innerHTML = ` <button class="interview-btn border border-solid border-[#10B981] text-[14px] font-semibold text-[#10B981] px-3 py-2 w-[100px] h-9 rounded-sm">INTERVIEW</button>`
 
         const cardInfo = {
             jobsName,
             jobsPosition,
             selary,
-            status:'INTERVIEW',
+            status : ` <button class="interview-btn border border-solid border-[#10B981] text-[14px] font-semibold text-[#10B981] px-3 py-2 w-[100px] h-9 rounded-sm">INTERVIEW</button>`,
             notes
         }
 
@@ -111,13 +126,13 @@ mainContainer.addEventListener('click', function (event) {
         const status = parentNode.querySelector('.status').innerText
         const notes = parentNode.querySelector('.notes').innerText
 
-        parentNode.querySelector('.status').innerText = 'REJECTED'
+        parentNode.querySelector('.status').innerHTML = `<button class="rejected-btn border border-solid border-[#EF4444] text-[14px] font-semibold text-[#EF4444] px-3 py-2 w-[100px] h-9 rounded-sm">REJECTED</button>`
 
         const cardInfo = {
             jobsName,
             jobsPosition,
             selary,
-            status:'REJECTED',
+            status:`<button class="rejected-btn border border-solid border-[#EF4444] text-[14px] font-semibold text-[#EF4444] px-3 py-2 w-[100px] h-9 rounded-sm">REJECTED</button>`,
             notes
         }
 
